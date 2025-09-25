@@ -2,18 +2,18 @@
 
 install:
 	sudo apt-get update
-	sudo apt-get install -y python3-full python3-pip python3-venv
-	python3 -m venv venv
-	./venv/bin/pip install -r requirements.txt
+	sudo apt-get install -y python3-full python3-pip python3-venv  # cSpell:ignore venv
+	python3 -m venv venv  # cSpell:ignore venv
+	./venv/bin/pip install -r requirements.txt  # cSpell:ignore venv
 
 test:
-	cd ci-cd-pipeline-project && ../venv/bin/python -m pytest tests/  # cSpell:ignore pytest
+	cd ci-cd-pipeline-project && ../venv/bin/python -m pytest tests/  # cSpell:ignore pytest venv
 
 build:
 	cd ci-cd-pipeline-project && docker build -t github-microservice .
 
 run:
-	cd ci-cd-pipeline-project && ../venv/bin/python src/app.py
+	cd ci-cd-pipeline-project && ../venv/bin/python src/app.py  # cSpell:ignore venv
 
 docker-run:
 	cd ci-cd-pipeline-project && docker-compose up

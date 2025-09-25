@@ -1,9 +1,5 @@
 flask==2.3.3
 pytest==7.4.2  # cSpell:ignore pytest
 requests==2.31.0
-gunicorn==21.2.0
-docker==6.1.3
-kubernetes==27.2.0
-ansible==8.5.0
-boto3==1.28.85
-terraform==1.5.7
+gunicorn==21.2.0  # cSpell:ignore gunicorn
+boto3==1.28.85  # cSpell:ignore boto
