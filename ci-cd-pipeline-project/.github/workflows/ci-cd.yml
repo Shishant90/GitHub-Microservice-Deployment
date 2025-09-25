@@ -18,10 +18,11 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y python3 python3-pip
-        pip3 install flask pytest
+        sudo apt-get install -y python3 python3-pip python3-venv
+        python3 -m venv venv
+        ./venv/bin/pip install flask pytest
     - name: Run tests
-      run: python3 -m pytest tests/  # cSpell:ignore pytest
+      run: ./venv/bin/python -m pytest tests/  # cSpell:ignore pytest
 
   deploy:
     needs: test

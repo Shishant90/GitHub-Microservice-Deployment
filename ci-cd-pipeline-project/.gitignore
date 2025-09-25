@@ -4,6 +4,7 @@ __pycache__/  # cSpell:ignore pycache
 *.pyo
 *.egg-info/
 venv/  # cSpell:ignore venv
+.venv/
 .env
 
 # Terraform - Exclude entire folder

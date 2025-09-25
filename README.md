@@ -68,22 +68,35 @@
 
 ## 🚀 Quick Start
 
+### Ubuntu Setup (Recommended)
 ```bash
-# Install dependencies
-make install
+# Easy setup
+chmod +x setup.sh
+./setup.sh
 
-# Run colorful web application
-make run
+# Run application
+chmod +x run.sh
+./run.sh
 # Visit: http://localhost:5000
+```
 
-# Run automated tests
-make test
+### Alternative Setup
+```bash
+# Manual setup
+sudo apt-get update
+sudo apt-get install -y python3-full python3-pip python3-venv
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 
-# Deploy with Docker
+# Run application
+cd ci-cd-pipeline-project
+python src/app.py
+```
+
+### Docker Deployment
+```bash
 make docker-run
-
-# Deploy to Kubernetes
-make k8s-deploy
 ```
 
 ## 📁 Project Architecture
