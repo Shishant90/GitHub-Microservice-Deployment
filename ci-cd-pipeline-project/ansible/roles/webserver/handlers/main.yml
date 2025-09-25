@@ -1,0 +1,5 @@
+---
+- name: restart app
+  systemd:
+    name: myapp  # cSpell:ignore myapp
+    state: restarted

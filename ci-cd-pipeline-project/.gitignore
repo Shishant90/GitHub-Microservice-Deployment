@@ -1,0 +1,28 @@
+# Python
+__pycache__/  # cSpell:ignore pycache
+*.pyc
+*.pyo
+*.egg-info/
+venv/  # cSpell:ignore venv
+.env
+
+# Terraform - Exclude entire folder
+terraform/
+*.tfstate  # cSpell:ignore tfstate
+*.tfstate.backup  # cSpell:ignore tfstate
+.terraform/
+terraform.tfvars  # cSpell:ignore tfvars
+*.tf
+
+# Security
+*.pem
+*.key
+private-keys/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

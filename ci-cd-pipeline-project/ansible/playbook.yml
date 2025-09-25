@@ -1,0 +1,5 @@
+---
+- hosts: webservers  # cSpell:ignore webservers
+  become: yes
+  roles:
+    - webserver
