@@ -1,16 +1,18 @@
 .PHONY: install test build run docker-run ansible-run k8s-deploy clean
 
 install:
-	pip install -r requirements.txt
+	sudo apt-get update
+	sudo apt-get install -y python3 python3-pip
+	pip3 install -r requirements.txt
 
 test:
-	cd ci-cd-pipeline-project && pytest tests/  # cSpell:ignore pytest
+	cd ci-cd-pipeline-project && python3 -m pytest tests/  # cSpell:ignore pytest
 
 build:
 	cd ci-cd-pipeline-project && docker build -t github-microservice .
 
 run:
-	cd ci-cd-pipeline-project && python src/app.py
+	cd ci-cd-pipeline-project && python3 src/app.py
 
 docker-run:
 	cd ci-cd-pipeline-project && docker-compose up
