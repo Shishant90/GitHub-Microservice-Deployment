@@ -13,7 +13,7 @@ python3 -m venv venv  # cSpell:ignore venv
 
 # Activate virtual environment and install packages
 source venv/bin/activate  # cSpell:ignore venv
-pip install -r requirements.txt
+pip install -r ci-cd-pipeline-project/requirements.txt
 
 echo "Setup complete! To run the application:"
 echo "1. source venv/bin/activate"  # cSpell:ignore venv
