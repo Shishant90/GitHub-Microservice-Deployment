@@ -4,24 +4,32 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'sudo apt-get update'
-                sh 'sudo apt-get install -y python3 python3-pip python3-venv'
+                sh 'python3 --version'
                 sh 'python3 -m venv venv'
-                sh './venv/bin/pip install -r requirements.txt'
+                sh './venv/bin/pip install --upgrade pip'
+                sh './venv/bin/pip install -r ci-cd-pipeline-project/requirements.txt'
             }
         }
         
         stage('Test') {
             steps {
-                sh './venv/bin/python -m pytest tests/'  // cSpell:ignore pytest
+                sh 'cd ci-cd-pipeline-project && ../venv/bin/python -m pytest tests/'  // cSpell:ignore pytest
             }
         }
         
         stage('Deploy') {
             steps {
                 sh 'echo "Deploying application on Ubuntu..."'
-                sh './venv/bin/python src/app.py &'
+                sh 'cd ci-cd-pipeline-project && nohup ../venv/bin/python src/app.py > app.log 2>&1 &'
+                sh 'sleep 2'
+                sh 'curl -f http://localhost:5000 || echo "Application starting..."'
             }
+        }
+    }
+    
+    post {
+        always {
+            sh 'pkill -f "python src/app.py" || true'
         }
     }
 }
